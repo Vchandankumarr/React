@@ -8,6 +8,7 @@ function Greetings(){
         <>
         <h1>React</h1>
         <h3 className={styles.App }>HELLO From Greetings</h3>
+        <h2>{true?"Good Moring":"Good Night"}</h2>
         </>
     )
 }
