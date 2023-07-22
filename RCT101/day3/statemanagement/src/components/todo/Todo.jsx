@@ -106,6 +106,17 @@ function Todo() {
 
   console.log(todos);
 
+  const handledelete=(id)=>{
+  let todosaftdelete=todos.filter((todo)=>{
+      return todo.id!==id
+  })
+  setTodo(todosaftdelete)
+  }
+
+  
+
+
+
   return (
     <div>
       
@@ -136,7 +147,7 @@ function Todo() {
         //     <h1>{element.title}</h1>
         //     <p>{element.status ? "Complete" : "Not Complete"}</p>
         //   </div>
-        <TodoItem  key={element.id} {...element}  handleUpdate={handleUpdate}/>
+        <TodoItem  key={element.id} {...element}  handleUpdate={handleUpdate}  handledelete={handledelete}/>
 
         // <TodoItem  key={element.id} element ={...element}/>
         ))}

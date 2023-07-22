@@ -2,7 +2,7 @@ const TodoItem=(props)=>{
 
     console.log(props)
   
-    const {id,status,title,handleUpdate}=props
+    const {id,status,title,handleUpdate,handledelete}=props
   
   
   
@@ -24,7 +24,8 @@ const TodoItem=(props)=>{
             >
               <h1>{title}</h1>
               <p>{status ? "Complete" : "Not Complete"}</p>
-              <button onClick={handleupdateclick}>toggle</button>
+              <button onClick={handleupdateclick}>Toggle</button>
+              <button onClickCapture={()=>handledelete(id)}>Delete</button>
             </div>
       )
   }
