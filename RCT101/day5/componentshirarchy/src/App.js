@@ -1,11 +1,14 @@
 
 import './App.css';
-import Useeffect from './components/Useeffect';
+// import Useeffect from './components/Useeffect';
+
+import Posts from './components/FetchPost'
 
 function App() {
   return (
     <div className="App">
-      <Useeffect/>
+      {/* <Useeffect/> */}
+      <Posts />
     </div>
   );
 }
