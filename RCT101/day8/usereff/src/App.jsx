@@ -8,6 +8,8 @@ import './App.css';
 
 import Timer from './components/timers/Timers';
 
+import Forms from './components/Form';
+
 function App() {
 
 
@@ -21,6 +23,8 @@ function App() {
 {/* <Input/> */}
 
 <Timer />
+
+<Forms/>
 
     </div>
   );
