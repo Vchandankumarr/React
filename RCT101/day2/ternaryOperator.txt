@@ -1,0 +1,21 @@
+Ternary operator
+
+
+some boolean operator?return value if condition is true
+
+example 1
+let a=true;
+let b=true;
+
+a==b? "India won the toss" : India lost the toss
+
+output:- India won the toss
+
+
+example 1
+let a=true;
+let b=false;
+
+a==b? "India won the toss" : India lost the toss
+
+output:- India lost the toss
