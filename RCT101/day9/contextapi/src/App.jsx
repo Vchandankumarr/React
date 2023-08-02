@@ -1,13 +1,13 @@
+import "./App.css";
 
-import './App.css';
-
-import Example from "./components/Example"
+import Example from "./components/Example";
+import Main from "./components/main.jsx";
 
 function App() {
   return (
     <div className="App">
-      <h1>app.jsx</h1>
       <Example />
+      <Main />
     </div>
   );
 }

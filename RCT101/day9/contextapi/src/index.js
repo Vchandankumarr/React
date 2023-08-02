@@ -1,19 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import ThemecontextProvider from "./components/contexts/ThemecontextProvider"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import ThemecontextProvider from "./components/contexts/ThemecontextProvider";
+
+import AuthcontextProvider from "./components/contexts/AuthContextprovider";
 // import { useState } from 'react';
 
 // export it to get in example.jsx
 // export const Appcontext=React.createContext()
 
-
 // console.log(Appcontext.Provider)
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // const ContextProvider=(prop)=>{
 //   const [theme,setTheme]=useState("Light")
@@ -28,17 +28,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 //   )
 // };
 
-
 root.render(
-  
   // <Appcontext.Provider value={{theme:"light"}}>  <App /> </Appcontext.Provider>
-  <ThemecontextProvider>
-    <App />
+
+  <AuthcontextProvider>
+    <ThemecontextProvider>
+      <App />
     </ThemecontextProvider>
-   
-    
-   
- 
+  </AuthcontextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
