@@ -1,0 +1,36 @@
+.parent{
+    display: flex;
+    margin: auto;
+}
+#part1{
+    width: 20%;
+}
+#part2{
+    width: 95%;
+    border: 1px solid rgb(119, 119, 119);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+   padding: 10px;
+   gap: 10px;
+    text-align: center;
+}
+.sort{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+   
+}
+.sort input{
+    width: 200px;
+    height: 20px;
+}
+.sort select{
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    margin-left: 15px;
+}
+#Card-div{
+    border: 2px solid gray;
+}

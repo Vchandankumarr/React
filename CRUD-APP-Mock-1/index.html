@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="parent">
+        <div id="part1">
+           <div class="sort">
+            <h2>POST</h2>
+            <form id="PostData">
+                <input type="text" id="image" placeholder="image"> <br>
+                <input type="text" id="name" placeholder="name"><br>
+                <input type="number" id="price" placeholder="price"><br>
+                <input type="submit" value="ADD" />
+            </form>
+           </div>
+           <div class="sort">
+            <h2>PUT</h2>
+           <form id="PutData">
+            <input type="text" placeholder="id" id="id"> <br>
+            <input type="text" placeholder="Image" id="putImage"> <br>
+            <input type="text" placeholder="name" id="putName"> <br>
+            <input type="number" placeholder="price" id="PutPrice"> <br>
+            <input type="submit" value="ADD" />
+           </form>
+           </div>
+           <div class="sort">
+            <h2>PATCH</h2>
+            <form id="PatchData">
+                <input type="number" placeholder="id" id="patchid"> <br>
+                <input type="number" placeholder="price" id="patchprice" ><br>
+                <input type="submit" value="ADD" />
+            </form> 
+           </div>
+           <div class="sort">
+            <h2>DELETE</h2>
+            <form id="DeleteData">
+                <input type="text" placeholder="id" id="Deleteid" ><br>
+                <input type="submit" value="DELETE" />
+            </form>
+           </div>
+           <div class="sort">
+            <h2>SORT BY Price</h2>
+             <select id="SortData">
+                <option value="default" >Select</option>
+                <option value="asc" >LOW TO HIGH</option>
+                <option value="desc">HIGH TO LOW</option>
+             </select>
+           </div>
+        </div>
+        <div id="part2">
+            <!-- <div>
+                <img width="20%" src="https://avatars.githubusercontent.com/u/112808279?v=4" alt="">
+                <h2>lOlOl</h2>
+                <p>$50000000</p>
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>
+<script src="./main.js"></script>
