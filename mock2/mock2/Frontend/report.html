@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="navbar_container">
+       
+        <div><a href="./data.html">Data</a></div>
+       
+   </div>
+   <div id="report_container">
+  
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Total No of Guest</td>
+                <th>Total No of student</td>
+                <th>Total No of working professional</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+   </div>
+</body>
+</html>
+
+<script>
+
+
+
+window.addEventListener("load",getData)
+async function getData() {
+  let response = await fetch("https://ill-pink-ant-kit.cyclic.app/users");
+  let data = await response.json();
+
+  getTotal(data);
+}
+
+function getTotal(data) {
+  let Total = data.length;
+  let student = 0;
+  let professional = 0;
+
+  data.forEach((el) => {
+    el.profession === "Student" ? student++ : professional++;
+  });
+
+  var row = document.createElement("tr");
+  var col1 = document.createElement("td");
+  col1.innerText = Total;
+  var col2 = document.createElement("td");
+  col2.innerText = student;
+  var col3 = document.createElement("td");
+  col3.innerText = professional;
+  row.append(col1, col2, col3);
+  document.querySelector("tbody").append(row);
+}
+
+</script>

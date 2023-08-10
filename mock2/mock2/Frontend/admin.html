@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <style>
+        nav {
+            background-color: aquamarine;
+            display: flex;
+            justify-content: space-around;
+            height: 70px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        nav div {
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        nav button {
+            padding: 10px 20px;
+            color: white;
+            background-color: black;
+
+        }
+        #login-form {
+
+            background-color: aqua;
+            width: 25%;
+            margin: auto;
+            padding: 20px;
+            display: none;
+
+        }
+
+        form input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        #signup-form {
+            background-color: aqua;
+            width: 25%;
+            margin: auto;
+            padding: 20px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div>Masaiverse Admin</div>
+        <button id="loginbtn"><a href=""></a>Login</button>
+        <button><a href="./data.html">Data-page</a></button>
+        <button>  <a href="./report.html">Report-page</a></button>
+    </nav>
+
+
+    <form action="" id="signup-form">
+        <h1>Sigup As admin</h1>
+        <input type="text" placeholder="Username" id="name">
+        <input type="email" placeholder="Enter your email" id="email">
+        <input type="password" placeholder="Password" id="password">
+        <input type="checkbox" name="" id="isadmin">
+        <input type="submit" id="Signup">
+
+    </form>
+    <p> Go to login <button id="gotologin">Click here</button></p>
+
+    <form action="" id="login-form">
+        <h3>Login as Admin</h3>
+        <input type="text" placeholder="Enter name" id="name1"> <br>
+        <input type="text" placeholder="Enter your password" id="password1"> <br>
+      
+        <input type="submit">
+
+
+    </form>
+
+</body>
+
+</html>
+<script>
+
+
+    let form2 = document.getElementById("signup-form")
+    let form = document.getElementById("login-form");
+
+    let signupform = document.getElementById("Signup")
+
+    let loginbtn = document.getElementById("loginbtn");
+
+    loginbtn.addEventListener("click", showForm);
+
+    function showForm() {
+        if (form2.style.display === "none") {
+            form2.style.display = "block";
+        } else {
+            form2.style.display = "none";
+        }
+    }
+    let gotologin = document.getElementById("gotologin")
+    gotologin.addEventListener("click", gotologinfun)
+
+    function gotologinfun() {
+        if (form.style.display === "none") {
+            form.style.display = "block";
+        } else {
+            form.style.display = "none";
+        }
+    }
+
+    signupform.addEventListener(("click"), (e) => {
+        e.preventDefault();
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let isadmin = document.getElementById("isadmin").checked;
+
+        let obj = {
+            name,
+            email,
+            password,
+            isadmin
+        }
+        console.log(obj)
+        fetch(`https://ill-pink-ant-kit.cyclic.app/admin`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(obj)
+
+            })
+            .then((res) => {
+                return res.json()
+            })
+            .then((res) => {
+                console.log(res)
+                alert("Admin register success")
+
+                form2.style.display = "none"
+
+                form.style.display = "block"
+
+
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+    })
+
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault()
+
+
+        let name = document.getElementById("name1").value;
+        let password = document.getElementById("password1").value;
+
+
+        fetch(`https://ill-pink-ant-kit.cyclic.app/admin`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                console.log(data)
+                let mathcheuser = data.find((item) => {
+                    return item.name == name && item.password == password
+                })
+                console.log(mathcheuser)
+
+                if (mathcheuser) {
+
+                    alert("Login Success")
+
+                    if (mathcheuser.isadmin) {
+                        window.location.href = "./data.html"
+                    }
+                    else {
+                        window.location.href = "./admin.html"
+                    }
+                } else {
+                    alert("User Not found, Registe first")
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    })
+
+
+
+
+</script>

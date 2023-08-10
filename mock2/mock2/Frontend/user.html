@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User register</title>
+    <style>
+        form{
+            width: 25%;
+            padding: 20px;
+            background-color: aliceblue;
+            margin: auto;
+            margin-top: 50px;
+
+        }
+        form input,select{
+            margin-bottom: 10px;
+            padding: 10px 0px;
+            width: 100%;
+        }
+        #btn {
+            background-color: red;
+            font-weight: bold;
+            color: white;
+
+        }
+        #btn :hover{
+            background-color: blue;
+            color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <form action="" id="register-form">
+        <h1>Register Page</h1>
+        <input type="img" placeholder="Enter image" id="image" value="https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg"> <br>
+      <input type="text" placeholder="Enter your name" id="name"> <br>
+
+      <input type="number" placeholder="Enter your age" id="age"> <br>
+
+      <input type="text" placeholder="Enter your place" id="place"> <br>
+      <select name="batch" id="batch">
+        <option value="WEB-13">WEB-13</option>
+        <option value="WEB-14">WEB-14</option>
+        <option value="WEB-15">WEB-15</option>
+      </select> <br>
+      <select name="profession" id="profession">
+        <option value="FSD">FSD</option>
+        <option value="Frontend">Frontend</option>
+        <option value="Backend">Backend</option>
+        <option value="Student">Student</option>
+      </select> <br>
+      <input type="submit" id="btn">
+    </form>
+    
+</body>
+</html>
+<script>
+    let form = document.getElementById("register-form")
+
+    form.addEventListener("submit",(event)=>{
+        event.preventDefault()
+
+        let img = document.getElementById("image").value
+        let name = document.getElementById("name").value
+        let age = document.getElementById("age").value
+        let place = document.getElementById("place").value
+        let batch = document.getElementById("batch").value
+        let profession = document.getElementById("profession").value
+
+
+        let obj = {
+            img,
+            name,
+            age,
+            place,
+            batch,
+            profession
+        }
+        console.log(obj)
+
+
+        fetch(`https://ill-pink-ant-kit.cyclic.app/users`,
+        {
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body:JSON.stringify(obj)
+        })
+        .then((res) => {
+            return res.json()
+        }).then((res)=> {
+            console.log(res)
+            alert("successfully registered")
+           
+        })
+        .catch((err)=> {
+            console.log(err)
+        })
+    })
+    
+</script>

@@ -1,0 +1,132 @@
+{
+  "users": [
+    
+    {
+      "img": "https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg",
+      "name": "harshal",
+      "age": "22",
+      "place": "jalgaon",
+      "batch": "WEB-14",
+      "profession": "Backend",
+      "id": 3
+    },
+    {
+        "img": "https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg",
+        "name": "ram",
+        "age": "23",
+        "place": "jammu",
+        "batch": "WEB-15",
+        "profession": "Frontend",
+        "id": 3
+      },
+      {
+        "img": "https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg",
+        "name": "akash",
+        "age": "22",
+        "place": "jalgaon",
+        "batch": "WEB-14",
+        "profession": "Student",
+        "id": 3
+      },
+      {
+        "img": "https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg",
+        "name": "sachin",
+        "age": "22",
+        "place": "pune",
+        "batch": "WEB-13",
+        "profession": "FSD",
+        "id": 3
+      },
+      {
+        "img": "https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg",
+        "name": "harshal",
+        "age": "22",
+        "place": "jalgaon",
+        "batch": "WEB-14",
+        "profession": "Backend",
+        "id": 3
+      },
+      {
+          "img": "https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg",
+          "name": "ram",
+          "age": "23",
+          "place": "jammu",
+          "batch": "WEB-15",
+          "profession": "Frontend",
+          "id": 3
+        },
+        {
+            "img": "https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg",
+            "name": "harshal",
+            "age": "22",
+            "place": "jalgaon",
+            "batch": "WEB-14",
+            "profession": "Backend",
+            "id": 3
+          },
+          {
+              "img": "https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg",
+              "name": "ram",
+              "age": "23",
+              "place": "jammu",
+              "batch": "WEB-15",
+              "profession": "Frontend",
+              "id": 3
+            },
+            {
+                "img": "https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg",
+                "name": "harshal",
+                "age": "22",
+                "place": "jalgaon",
+                "batch": "WEB-14",
+                "profession": "Backend",
+                "id": 3
+              },
+              {
+                  "img": "https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg",
+                  "name": "ram",
+                  "age": "23",
+                  "place": "jammu",
+                  "batch": "WEB-15",
+                  "profession": "Frontend",
+                  "id": 3
+                }
+  ],
+  "admin": [
+    {
+      "name": "harshal",
+      "email": "hh@gmail.com",
+      "password": "harshal",
+      "isadmin": true,
+      "id": 2
+    },
+    {
+      "name": "sonu",
+      "email": "ss@gmail.com",
+      "password": "sonu",
+      "isadmin": true,
+      "id": 3
+    },
+    {
+      "name": "shubham",
+      "email": "shu@gmail.com",
+      "password": "shu",
+      "isadmin": true,
+      "id": 4
+    },
+    {
+      "name": "suraj",
+      "email": "sss@gmai.com",
+      "password": "sss",
+      "isadmin": true,
+      "id": 6
+    },
+    {
+      "name": "assign",
+      "email": "aaaa@gmail.com",
+      "password": "1234",
+      "isadmin": true,
+      "id": 7
+    }
+  ]
+}

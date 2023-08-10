@@ -1,0 +1,169 @@
+<DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data page</title>
+    </head>
+    <body>
+        
+       
+        <!-- filtring -->
+        <select name="" id="userprof">
+            <option value="FSD">FSD</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            
+        </select>
+        
+        <!-- sorting-->
+         <div>
+            <button id="high"> Age IN INC</button>
+            <button id="low"> Age IN DSC</button>
+         </div>
+          
+         <!-- searching-->
+         <div>
+            <input id="searchinput" type="text" placeholder=" search by name"/>
+            <button id="searchbtn">search</button>
+         </div>
+        
+    
+         <div id="container"></div>
+        <div id="pagination"></div>
+    </body>
+    <script>
+    
+        let container=document.getElementById("container")
+        let userprof=document.getElementById("userprof")
+        let sortdata=document.getElementById("sort")
+        let searchinput=document.getElementById("searchinput")
+        let searchbtn=document.getElementById("searchbtn")
+        let highbtn=document.getElementById("high")
+        let lowbtn=document.getElementById("low")
+       
+    
+       
+        let tofilterdata=[]
+        let currentpage=1
+    
+        function fetcheddata()
+        {
+            fetch(`https://ill-pink-ant-kit.cyclic.app/users`)
+        .then((res)=>{
+                return res.json();
+            })
+            .then((data)=>{
+                console.log(data)
+                tofilterdata=data;
+                cardlist(data,currentpage)
+                addpagination(data)
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+        }
+       
+        fetcheddata()
+    
+        //searching by name
+       searchbtn.addEventListener("click",(e)=>{
+        let searchname=searchinput.value.toLowerCase();
+    
+        let filtersearchdata=tofilterdata.filter((e)=>{
+            let prfessionname=e.name.toLowerCase();
+            return prfessionname.includes(searchname)
+        });
+    
+        cardlist(filtersearchdata,currentpage)
+       })
+    
+       // sortin button;
+    
+       highbtn.addEventListener("click",(e)=>{
+        let h=tofilterdata.sort((a,b)=>b.age-a.age)
+        cardlist(h,currentpage);
+       });
+       
+       lowbtn.addEventListener("click",(e)=>{
+        let l=tofilterdata.sort((a,b)=>a.age-b.age)
+        cardlist(l,currentpage);
+       });
+    
+     //filtring
+    
+         userprof.addEventListener("change",()=>{
+            let filterd=tofilterdata.filter((ele)=>{
+                if(ele.profession=== userprof.value)
+                {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            });
+            cardlist(filterd,currentpage)
+         });
+     
+       
+    //pagination 
+    
+        function addpagination(data)
+        {
+            totalpage=Math.ceil(data.length/5)
+    
+            let pagination=document.getElementById("pagination")
+            pagination.innerHTML="";
+            for(let i=1;i<=totalpage;i++)
+            {
+                let button=document.createElement("button")
+                button.textContent=i;
+                button.addEventListener("click",function()
+                {
+                    currentpage=i;
+                    cardlist(data,currentpage)
+                });
+                pagination.append(button)
+            }
+        }
+    
+    
+            function carddata(id,name,age,place,batch,profession )
+            {
+                let cart=`
+                <div class="card" id=${id}>
+                   <div class="imgdiv">
+                    <img src="https://www.shutterstock.com/image-photo/portrait-smiling-young-college-student-260nw-1192615495.jpg" alt="userimage">
+                    </div>
+    
+                    <div >
+                        <h1>Name:${name}</h1>
+                        <p>Age:${age}</p>
+                        <p>Place :${place}</p>
+                        <p>Batch Name:${batch}</p>
+                        <p>Profession :${profession}</p>
+                        </div>
+                </div>
+                `
+                return cart
+            }
+    
+            function cardlist(data,page)
+            {
+                let starti=(page-1)*5;
+                let endi=starti + 5;
+                let sliceddata=data.slice(starti,endi);
+    
+                let cardlist=`
+                <div class="card-list">
+                    ${sliceddata.map((ele)=>{
+                        return carddata(ele.id,ele.name,ele.age,ele.place,ele.batch,ele.profession)
+                    })}
+                    </div>
+                `
+                container.innerHTML=cardlist;
+     
+            }
+        
+    </script>
+    </html>
