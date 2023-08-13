@@ -10,3 +10,8 @@ to code or open vs code
 
  to check hidden file and folder 
  ----ls -la
+
+
+npm i express nodemon mongoose dotenv bcrypt jsonwebtoken 
+npm i express mongoose nodemon bcrypt dotenv jsonwebtoken cors node-fetch
+
