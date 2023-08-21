@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<link rel="stylesheet" href="./styles/dashboard.css">
+<body>
+ 
+  <div class="container">
+    <h1>Employee Management</h1>
+    <button id="addEmployeeBtn">Add Employee</button>
+    <button id="logout">Logout</button>
+
+    <div id="sorting">
+      <select name="" id="sort">
+          <option value="">Sort by Salary</option>
+          <option value="asc">ASC</option>
+          <option value="desc">DESC</option>
+          </select>
+  </div>
+  <div id="filtering">
+      <select name="" id="filter">
+          <option value="">Filter by Department</option>
+          <option value="Tech">Tech</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Operations">Operations</option>
+          </select>
+  </div>
+
+  <div id="searching">
+      <input type="text" placeholder="Enter name to search" id="search">
+      <button id="searchbtn">Search</button>
+  </div>
+
+    <div id="employeeForm" class="modal">
+      <div class="modal-content">
+        
+        <h2>Add Employee</h2>
+        <form id="addEmployeeForm">
+          <span class="close">&times;</span>
+          <input type="text" id="firstName" placeholder="First Name" required>
+          <input type="text" id="lastName" placeholder="Last Name" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <select id="department" required>
+            <option value="" disabled selected>Select Department</option>
+            <option value="Tech">Tech</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Operations">Operations</option>
+          </select>
+          <input type="number" id="salary" placeholder="Salary" required>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Salary</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="employeeTableBody">
+        <!-- //append here -->
+      </tbody>
+    </table>
+  </div>
+</body>
+<script src="./scripts/dashboard.js"></script>
+</html>
